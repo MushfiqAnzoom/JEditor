@@ -25,28 +25,18 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer{
 		setFont(new Font("Ubuntu", Font.PLAIN, 14));
 		
 		if(getText().equalsIgnoreCase("Files opened: ")){
-			return c;
+			return this;
 		}
 		
 		setIcon(ImageLoader.loadImage("images/document_small.png"));
-		
-		
-		return c;
+
+		if (sel) {
+			setOpaque(true);
+			setBackground(Color.GREEN); // Change to your desired color
+		} else {
+			setOpaque(false);
+			setBackground(Color.WHITE); // Change to your desired color
+		}
+		return this;
 	}
-	
-	@Override
-    public Color getBackgroundNonSelectionColor() {
-        return (null);
-    }
-
-    @Override
-    public Color getBackgroundSelectionColor() {
-        return Color.GREEN;
-    }
-
-	@Override
-    public Color getBackground() {
-        return (null);
-    }	
-
 }
